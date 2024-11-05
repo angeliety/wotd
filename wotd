@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word of the Day</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .widget {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+        .widget h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 0.5em;
+        }
+        .widget p {
+            font-size: 1em;
+            color: #666;
+            margin-top: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="widget">
+        <h2 id="word">Word of the Day</h2>
+        <p id="definition">Loading...</p>
+    </div>
+
+    <script>
+        // Array of words and definitions
+        const words = [
+            { word: "Ephemeral", definition: "Lasting for a very short time." },
+            { word: "Serendipity", definition: "The occurrence of events by chance in a happy or beneficial way." },
+            { word: "Ineffable", definition: "Too great or extreme to be expressed in words." },
+            { word: "Euphoria", definition: "A feeling or state of intense excitement and happiness." },
+            { word: "Petrichor", definition: "A pleasant smell that frequently accompanies the first rain after a long period of warm, dry weather." }
+        ];
+
+        // Function to display the word of the day
+        function displayWordOfTheDay() {
+            // Get the current day
+            const day = new Date().getDate();
+            // Select a word based on the day
+            const wordOfTheDay = words[day % words.length];
+            // Display the word and definition
+            document.getElementById("word").textContent = wordOfTheDay.word;
+            document.getElementById("definition").textContent = wordOfTheDay.definition;
+        }
+
+        // Display the word of the day on load
+        displayWordOfTheDay();
+    </script>
+</body>
+</html>
